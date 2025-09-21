@@ -73,5 +73,5 @@ STM32와 FreeRTOS 기반의 펌웨어부터 ROS2 센서퓨전, 모바일 앱까�
 
 <br>
 
-### YouTube
+### YouTube - 프로젝트 최종 데모 영상
 https://www.youtube.com/watch?v=ovQ-Pq1NfFU

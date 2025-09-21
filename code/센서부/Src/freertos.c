@@ -149,23 +149,12 @@ void StartTxTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-//	  debug++;
 
-//	if((roll != 0.0 && roll <= 0.00000001 && roll >= -0.00000001)
-//	&& (pitch != 0.0 &&  pitch <= 0.00000001 &&  pitch >= -0.00000001)
-//	&& (yaw != 0.0 && yaw <= 0.00000001 && yaw >= -0.00000001)){
-////		if(roll != 0.0 && imu_stat != 9){
-////			NVIC_SystemReset();
-////		IMU_Init();
-//		IMU_CallBack();
-////		}
-//	}
-// 	  else if (Latitude != 0.0 && Longitude != 0.0){
-		  snprintf(pubData, sizeof(pubData),"*%f,%f,%f,%f,%f,%f,%f,%f,%f,%lf,%lf\n", roll, pitch, yaw, ax, ay, az, lx, ly, lz, Latitude, Longitude); // real data
-	//	  snprintf(pubData,sizeof(pubData),"*%f,%f,%f,%f,%f,%f,%f,%f,%f,%lf,%c\n", roll, pitch, yaw, ax, ay, az, lx, ly, lz, Latitude, Quality); // test data
-		  HAL_UART_Transmit(&huart4, (uint8_t*)pubData, sizeof(pubData), HAL_MAX_DELAY);
-		  memset(pubData, 0, sizeof(pubData));
-//	  }
+	  snprintf(pubData, sizeof(pubData),"*%f,%f,%f,%f,%f,%f,%f,%f,%f,%lf,%lf\n", roll, pitch, yaw, ax, ay, az, lx, ly, lz, Latitude, Longitude); // real data
+//	  snprintf(pubData,sizeof(pubData),"*%f,%f,%f,%f,%f,%f,%f,%f,%f,%lf,%c\n", roll, pitch, yaw, ax, ay, az, lx, ly, lz, Latitude, Quality); // test data
+	  HAL_UART_Transmit(&huart4, (uint8_t*)pubData, sizeof(pubData), HAL_MAX_DELAY);
+	  memset(pubData, 0, sizeof(pubData));
+
   }
   /* USER CODE END StartTxTask */
 }
@@ -188,3 +177,4 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 }
 
 /* USER CODE END Application */
+
